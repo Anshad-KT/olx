@@ -58,11 +58,11 @@ function Header(): JSX.Element {
           
         </div>
 <span onClick={handleSignOut}>{user ? "Logout" : null }</span>
-        <div className="sellMenu">
+        <div className="sellMenu" onClick={()=>navigate('/create')}>
           <SellButton />
           <div className="sellMenuContent">
             <SellButtonPlus />
-            <span>SELL</span>
+            <span >SELL</span>
           </div>
         </div>
       </div>

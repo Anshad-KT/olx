@@ -8,10 +8,13 @@ import Login from './Components/Login/Login';
 import { AuthContext, FirebaseContext } from "./store/Context";
 import { auth } from "./firebase/config";
 import Create from './Components/Create/Create';
+import ViewPost from './Pages/ViewPost';
+import PostDetails from './store/PostContext';
 
 function App(): JSX.Element {
   
   const {setUser} = useContext(AuthContext)
+
   useEffect(()=>{
     
      auth.onAuthStateChanged((user)=>{
@@ -21,16 +24,19 @@ function App(): JSX.Element {
   },[])
   return (
     <div>
+      <PostDetails>
+
+     
       <Router>
         <Routes>
          <Route path='/' element={<Home />} /> 
          <Route path='/signup' element={<Signup />} /> 
          <Route path='/login' element={<Login />} /> 
          <Route path='/create' element={<Create />} /> 
-         
+         <Route path='/viewpost' element={<ViewPost />} /> 
         </Routes>
       </Router>
-      
+      </PostDetails>
     </div>
   );
 }
